@@ -120,7 +120,19 @@ class GastoController extends Controller
         $columns = array_column($dataCategorias, 'total');
         array_multisort($columns, SORT_DESC, $dataCategorias);
 
-        return Inertia::render('Gastos/Index', compact('year','diferencia','totalAnual','dataSemanal','mes','dataMes','data','totalMes','dataCategorias','promedioSemanal','chartLabel','modulo'));
+        $titlePeriodos =" $modulo por Periodos";
+        $titleCategorias =" $modulo por Categorias";
+        $titleGrafica ="$modulo por Mes del $year";
+
+        $headers = array(
+            1 => "Descripcion",
+            2 => "Total",
+        );
+
+
+        return Inertia::render('Gastos/Index', compact('year','diferencia','totalAnual','dataSemanal',
+        'mes','dataMes','data','totalMes','dataCategorias','promedioSemanal','chartLabel',
+        'modulo','titlePeriodos','titleCategorias','titleGrafica','headers'));
     }
     public static function obtenerMes($n){
         switch ($n) {

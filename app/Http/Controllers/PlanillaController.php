@@ -123,9 +123,18 @@ class PlanillaController extends Controller
         $columns = array_column($dataCategorias, 'total');
         array_multisort($columns, SORT_DESC, $dataCategorias);
 
+        $titlePeriodos ="$modulo por Periodos";
+        $titleCategorias ="$modulo por Empleados";
+        $titleGrafica ="$modulo por Mes del $year";
 
+        $headers = array(
+            1 => "Descripcion",
+            2 => "Total",
+        );
 
-        return Inertia::render('Planillas/Index', compact('year','diferencia','dataSemanal','totalAnual','mes','dataMes','totalMes','dataCategorias','promedioSemanal','data','modulo','chartLabel'));
+        return Inertia::render('Planillas/Index', compact('year','diferencia','dataSemanal','totalAnual',
+        'mes','dataMes','totalMes','dataCategorias','promedioSemanal','data','modulo',
+        'chartLabel','titlePeriodos','titleCategorias','titleGrafica','headers'));
     }
 
     public static function obtenerMes($n){

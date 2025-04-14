@@ -156,7 +156,19 @@ class PintadoController extends Controller
         $columns = array_column($clientesI, 'total');
         array_multisort($columns, SORT_DESC, $clientesI);
 
-        return Inertia::render('Pintados/Index', compact('year','clienteFrecuente', 'totalAnual','dataMarcas','mes','dataMes','dataSemanal','totalMes','diferencia','promedioSemanal','chartLabel','modulo'));
+        $titleProveedores ="$modulo por Proveedores";
+        $titlePeriodos ="$modulo por Periodos";
+        $titleCategorias ="$modulo por Marcas";
+        $titleGrafica ="$modulo por Mes del $year";
+
+        $headers = array(
+            1 => "Descripcion",
+            2 => "Total",
+        );
+
+        return Inertia::render('Pintados/Index', compact('year','clienteFrecuente', 'totalAnual','dataMarcas',
+        'mes','dataMes','dataSemanal','totalMes','diferencia','promedioSemanal','chartLabel','modulo',
+        'titleProveedores','headers','titlePeriodos','titleCategorias','titleGrafica'));
     }
 
     public static function obtenerMes($n){

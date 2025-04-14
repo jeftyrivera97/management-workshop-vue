@@ -147,8 +147,20 @@ class CompraController extends Controller
         $columns = array_column($dataProveedores, 'total');
         array_multisort($columns, SORT_DESC, $dataProveedores);
 
+        $titleProveedores ="$modulo por Proveedores";
+        $titlePeriodos ="$modulo por Periodos";
+        $titleCategorias ="$modulo por Categorias";
+        $titleGrafica ="$modulo por Mes del $year";
 
-        return Inertia::render('Compras/Index', compact('dataProveedores','year','diferencia','totalAnual','dataSemanal','mes','dataMes','data','totalMes','dataCategorias','promedioSemanal','modulo','chartLabel'));
+        $headers = array(
+            1 => "Descripcion",
+            2 => "Total",
+        );
+
+
+        return Inertia::render('Compras/Index', compact('dataProveedores','year','diferencia','totalAnual','dataSemanal','mes',
+        'dataMes','data','totalMes','dataCategorias','promedioSemanal','modulo','chartLabel',
+        'titleProveedores','headers','titlePeriodos','titleCategorias','titleGrafica'));
     }
 
     public static function obtenerMes($n){

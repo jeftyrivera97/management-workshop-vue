@@ -16,7 +16,7 @@ class IngresoController extends Controller
     public function index()
     {
         $modulo = "Ingresos";
-        $chartLabel = "Compras del Mes";
+        $chartLabel = "Ingresos del Mes";
         $mes= now()->format('F');
         $numMes = now()->format('m');
         $mes= $this->obtenerMes($numMes);
@@ -118,7 +118,19 @@ class IngresoController extends Controller
         $columns = array_column($dataCategorias, 'total');
         array_multisort($columns, SORT_DESC, $dataCategorias);
 
-        return Inertia::render('Ingresos/Index', compact('modulo','year','diferencia','totalAnual','dataSemanal','mes','dataMes','data','totalMes','dataCategorias','promedioSemanal','chartLabel'));
+
+        $titlePeriodos ="$modulo por Periodos";
+        $titleCategorias ="$modulo por Categorias";
+        $titleGrafica ="$modulo por Mes del $year";
+
+        $headers = array(
+            1 => "Descripcion",
+            2 => "Total",
+        );
+
+        return Inertia::render('Ingresos/Index', compact('modulo','year','diferencia','totalAnual','dataSemanal',
+        'mes','dataMes','data','totalMes','dataCategorias','promedioSemanal',
+        'chartLabel','titlePeriodos','titleCategorias','titleGrafica','headers'));
     }
 
     public static function obtenerMes($n){

@@ -99,7 +99,7 @@ onMounted(() => {
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <b><span> Balance Anual </span></b>
                 <div class="grid gap-6 mb-6 md:grid-cols-4">
                     <div class="grid w-full max-w-sm items-center gap-1.5">
@@ -120,7 +120,7 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <b><span> Balance del Mes </span></b>
                 <div class="grid gap-6 mb-6 md:grid-cols-4">
                     <div class="grid w-full max-w-sm items-center gap-1.5">
@@ -142,7 +142,7 @@ onMounted(() => {
 
                 </div>
             </div>
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <b><span> Grafica mensual 20{{ year }}: </span></b>
                 <div class="chart-container" style="position: relative; height:80vh; width:75vw">
                     <canvas id="myChart"></canvas>

@@ -42,19 +42,19 @@ const props = defineProps({
     <AppLayout :breadcrumbs="breadcrumbs">
 
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <InfoStats :promedioSemanal="promedioSemanal" :totalAnual="totalAnual" :totalMes="totalMes"
                     :diferencia="diferencia" />
             </div>
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a; margin-top: 5px;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <GraficaMes :title="titleGrafica" :data="dataMes" :chartLabel="chartLabel" />
             </div>
 
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a; margin-top: 5px;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <IndexTable :title="titleCategorias" :headers="headers" :data="dataCategorias" />
             </div>
 
-            <div class="rounded-xl p-4" style="background-color: #1e1b1a; margin-top: 5px;">
+            <div class="rounded-xl p-4" style="border-width: 1px;">
                 <IndexTable :title="titlePeriodos" :headers="headers" :data="dataSemanal" />
             </div>
         </div>

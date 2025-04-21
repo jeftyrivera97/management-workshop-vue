@@ -28,7 +28,7 @@ const submit = () => {
 </script>
 
 <template>
-    <AuthBase title="Ingresar al Sistema" description="Ingresa tu cuenta y tu contraseña">
+    <AuthBase title="Ingresar al Panel de Estadisticas" description="Ingresa tu cuenta y tu contraseña">
         <Head title="Log in" />
 
         <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
@@ -55,9 +55,7 @@ const submit = () => {
                 <div class="grid gap-2">
                     <div class="flex items-center justify-between">
                         <Label for="password">Contraseña</Label>
-                        <TextLink v-if="canResetPassword" :href="route('password.request')" class="text-sm" :tabindex="5">
-                           Olvidaste tu contraseña?
-                        </TextLink>
+
                     </div>
                     <Input
                         id="password"
